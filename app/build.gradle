@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
-
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -63,4 +63,31 @@ dependencies {
     //glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
 
+    //room
+    def room_version = "2.2.6"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    //circle image and card view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation "androidx.cardview:cardview:1.0.0"
+
+
+    //Doaa
+
+
+    //Doaa
+
+
+
+    //Rahma
+
+
+    //Rahma
+
+
+    //Heba
+
+
+    //Heba
 }
