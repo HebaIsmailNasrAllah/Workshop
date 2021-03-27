@@ -8,11 +8,15 @@ class LocalDataSource {
  lateinit var userDao:UserDao
    constructor (application: Application) {
 
-     userDao  = ApiObjDataBase.getDatabase(application).userObjDao()
+     userDao  = ApiObjDataBase.getDatabase(application).
+     userObjDao()
    }
 
       suspend fun insertUser(userEntity: UserEntity) {
           return userDao.insertUser(userEntity)
        }
+    suspend fun getUserByEmail(userEmail: String) :UserEntity{
+             return userDao.getUserByEmail(userEmail)
+          }
 
 }

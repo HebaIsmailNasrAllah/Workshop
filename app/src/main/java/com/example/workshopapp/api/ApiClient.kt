@@ -8,7 +8,7 @@ class ApiClient {
         private lateinit var retrofit: Retrofit
         init {
             retrofit=Retrofit.Builder()
-                .baseUrl("http://newsapi.org/v2/")
+                .baseUrl("https://newsapi.org/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
