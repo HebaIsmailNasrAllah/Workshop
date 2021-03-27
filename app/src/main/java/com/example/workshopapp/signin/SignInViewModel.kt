@@ -17,7 +17,7 @@ class SignInViewModel: ViewModel() {
     fun validate_login(userEmail: String, password: String, context: Application) :MutableLiveData<Int>{
         var result= MutableLiveData<Int>()
         result.value = 0
-        var incomingUser = UserEntity("","", "")
+        var incomingUser = UserEntity("","")
         if (!userEmail.isNullOrEmpty() || !password.isNullOrEmpty()) {
             if (!Utils.validateRegistration(userEmail, password)) {
                     CoroutineScope(Dispatchers.IO).launch {
