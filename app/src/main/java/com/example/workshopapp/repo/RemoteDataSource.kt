@@ -10,22 +10,21 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class RemoteDataSource : RemoteInterface{
-     var newsLiveData:MutableLiveData<NewsResponse> = MutableLiveData()
-    override fun fetchNewsData(
+     var newsLiveData:MutableLiveData<List<ArticlesItem>> = MutableLiveData()
+    override suspend fun fetchNewsData(
         apiKey: String,
         q:String
-    ): LiveData<NewsResponse> {
-       CoroutineScope(Dispatchers.IO).launch {
-            val response = ApiClient.getApi().getNews(apiKey,q)
+    ): List<ArticlesItem?>? {
+
+         val response = ApiClient.getApi().getNews(apiKey,q)
             try {
                 if (response.isSuccessful) {
-                   newsLiveData.postValue(response.body())
+                   return response.body()?.articles
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }
-        return newsLiveData
+        return null
     }
 
 }

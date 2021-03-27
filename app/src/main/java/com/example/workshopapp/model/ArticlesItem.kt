@@ -1,7 +1,10 @@
 package com.example.newsapp.model
 
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-
+@Entity(tableName = "article_list")
 data class ArticlesItem(
 
 	@field:SerializedName("publishedAt")
@@ -15,7 +18,7 @@ data class ArticlesItem(
 
 	@field:SerializedName("description")
 	val description: String? = null,
-
+	@Embedded
 	@field:SerializedName("source")
 	val source: SourcesItem? = null,
 
@@ -27,4 +30,7 @@ data class ArticlesItem(
 
 	@field:SerializedName("content")
 	val content: String? = null
-)
+){
+	@PrimaryKey(autoGenerate = true)
+	var id=0
+}

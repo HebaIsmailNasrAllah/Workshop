@@ -71,8 +71,15 @@ dependencies {
     //room
     def room_version = "2.2.6"
 
+
+
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
+
+
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
     //circle image and card view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation "androidx.cardview:cardview:1.0.0"
@@ -86,8 +93,8 @@ dependencies {
 
 
     //Rahma
-
-
+    //circle image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
     //Rahma
 
 

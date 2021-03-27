@@ -11,17 +11,17 @@ data class SourcesItem(
 	val name: String? = null,
 
 	@field:SerializedName("description")
-	val description: String? = null,
+	val SourceDescription: String? = null,
 
 	@field:SerializedName("language")
     var language: String? = null,
 
 	@field:SerializedName("id")
-	val id: String? = null,
+	val sourceId: String? = null,
 
 	@field:SerializedName("category")
 	val category: String? = null,
 
 	@field:SerializedName("url")
-	val url: String? = null
+	val sourceUrl: String? = null
 )

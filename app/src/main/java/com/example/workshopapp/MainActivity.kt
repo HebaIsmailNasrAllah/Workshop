@@ -27,11 +27,12 @@ class MainActivity : AppCompatActivity() {
         shimmerFrameLayout= ShimmerFrameLayout(applicationContext)
         mainViewModel=
             ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(MainViewModel::class.java)
-        mainViewModel.fetchNewsData(Constants.apiKey,Constants.q).observe(this,{
+        mainViewModel.fetchNewsData(Constants.apiKey,Constants.q)
+        mainViewModel.liveData.observe(this,{
             shimmerFrameLayout.stopShimmerAnimation()
             shimmerFrameLayout.visibility=View.GONE
             binding.recyclerView.visibility=View.VISIBLE
-            newsAdapter.changeData(it.articles)
+            newsAdapter.changeData(it)
         })
         setContentView(binding.root)
     }
