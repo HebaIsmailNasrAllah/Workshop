@@ -1,6 +1,5 @@
-package com.example.workshopapp
+package com.example.workshopapp.signin
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.workshopapp.databinding.ActivitySignInBinding
@@ -23,11 +22,6 @@ class SignIn : AppCompatActivity() {
             signInViewModel.validate_login(binding.etSigninUsername.text.toString(), binding.etSigninPassword.text.toString(), this )
         }
 
-
-
-
-
     }
-
 
 }
