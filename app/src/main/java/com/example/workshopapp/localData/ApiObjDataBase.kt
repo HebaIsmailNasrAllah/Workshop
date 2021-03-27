@@ -3,10 +3,12 @@ import android.app.Application
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.workshopapp.localData.viewModel.Dao.UserDao
 
 @Database(entities =[ UserEntity::class] ,version = 1)
 abstract class ApiObjDataBase : RoomDatabase() {
     // abstract fun apiObjDao(): NewsResponseDao
+    abstract fun userObjDao(): UserDao
 
     companion object {
         // Singleton prevents multiple instances of database opening at the
