@@ -1,8 +1,11 @@
 package com.example.workshopapp.signin
 
 import android.content.Context
+import android.content.Intent
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
+import com.example.workshopapp.MainActivity
 import com.example.workshopapp.Utils
 
 class SignInViewModel : ViewModel() {
@@ -12,7 +15,7 @@ class SignInViewModel : ViewModel() {
         if (!userEmail.isNullOrEmpty() || !password.isNullOrEmpty()) {
             if (!Utils.validateRegistration(userEmail, password)) {
                 if(userEmail.equals("")){
-                    //if(){} exists in db navigate
+                   // context.startActivity(Intent(t))
                 }else{
                     Toast.makeText(context, "User doesn't exist", Toast.LENGTH_SHORT).show() }
             }else{
