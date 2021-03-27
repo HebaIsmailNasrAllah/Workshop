@@ -7,14 +7,16 @@ import androidx.room.TypeConverters
 import com.example.newsapp.model.ArticlesItem
 import com.example.workshopapp.localData.viewModel.Dao.ArticlesDao
 import com.example.workshopapp.localData.viewModel.Dao.Converters
+import com.example.workshopapp.localData.viewModel.Dao.FavouriteDao
 import com.example.workshopapp.localData.viewModel.Dao.UserDao
 
-@Database(entities =[ UserEntity::class,ArticlesItem::class] ,version = 6)
+@Database(entities =[ UserEntity::class,ArticlesItem::class,FavavouriteItem::class] ,version = 7)
 @TypeConverters(Converters::class)
 abstract class ApiObjDataBase : RoomDatabase() {
     // abstract fun apiObjDao(): NewsResponseDao
     abstract fun userObjDao(): UserDao
     abstract fun articlesDao():ArticlesDao
+    abstract fun favouriteDao():FavouriteDao
 
     companion object {
         // Singleton prevents multiple instances of database opening at the

@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.newsapp.model.ArticlesItem
 import com.example.newsapp.model.NewsResponse
+import com.example.workshopapp.localData.FavavouriteItem
 import com.example.workshopapp.repo.NewsRepo
 import com.example.workshopapp.repo.RemoteDataSource
 import kotlinx.coroutines.launch
@@ -19,5 +20,10 @@ class MainViewModel(application: Application):AndroidViewModel (application){
              newsRepo.refresh(apiKey,q)
         }
 
+    }
+    fun insertfavouriteItem(favavouriteItem: FavavouriteItem){
+        viewModelScope.launch {
+            newsRepo.insertFavourite(favavouriteItem)
+        }
     }
 }
