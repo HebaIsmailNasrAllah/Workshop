@@ -13,8 +13,8 @@ class SignInViewModel : ViewModel() {
             if (!Utils.validateRegistration(userEmail, password)) {
                 if(userEmail.equals("")){
                     //if(){} exists in db navigate
-                }else{ }
-
+                }else{
+                    Toast.makeText(context, "User doesn't exist", Toast.LENGTH_SHORT).show() }
             }else{
                 Toast.makeText(context, "Ivalid User name or password, Please try again", Toast.LENGTH_SHORT).show() }
         }else{
