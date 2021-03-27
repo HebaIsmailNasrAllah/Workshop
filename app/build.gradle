@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
-
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -30,13 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    //Heba , Doaa
     buildFeatures {
-        dataBinding true
+        dataBinding = true
         viewBinding true
     }
-    //Heba , Doaa
 }
 
 dependencies {
@@ -49,6 +46,14 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //room
+    def room_version = "2.2.6"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    //circle image and card view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation "androidx.cardview:cardview:1.0.0"
 
 
     //Doaa
