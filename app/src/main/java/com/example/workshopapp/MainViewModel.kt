@@ -11,9 +11,7 @@ class MainViewModel(application: Application):AndroidViewModel (application){
     init {
         apiRepository= RemoteDataSource()
     }
-    fun fetchNewsData(apiKey: String,
-                      lang: String,
-                      source: String):LiveData<NewsResponse>{
-        return apiRepository.fetchNewsData(apiKey,lang,source)
+    fun fetchNewsData(apiKey: String,q:String):LiveData<NewsResponse>{
+        return apiRepository.fetchNewsData(apiKey,q)
     }
 }

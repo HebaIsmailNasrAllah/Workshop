@@ -5,5 +5,5 @@ import com.example.newsapp.model.ArticlesItem
 import com.example.newsapp.model.NewsResponse
 
 interface RemoteInterface {
-    fun fetchNewsData(apiKey:String,lang:String,source:String):LiveData<NewsResponse>
+    fun fetchNewsData(apiKey:String,q:String):LiveData<NewsResponse>
 }
