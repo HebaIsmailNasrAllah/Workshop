@@ -13,9 +13,8 @@ class Utils {
             val emailMatchResult: Boolean = matcherEmail.matches()
 
             //Minimum eight characters, at least one letter and one number
-
             val patternPassword: Pattern = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")
-            val matcherPassword: Matcher = patternPassword.matcher(userEmail)
+            val matcherPassword: Matcher = patternPassword.matcher(password)
             val passowordMatchResult : Boolean = matcherPassword.matches()
 
             result = emailMatchResult && passowordMatchResult
