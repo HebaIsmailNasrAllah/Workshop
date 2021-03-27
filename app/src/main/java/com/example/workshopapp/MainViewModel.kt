@@ -1,19 +1,23 @@
 package com.example.workshopapp
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.*
+import com.example.newsapp.model.ArticlesItem
 import com.example.newsapp.model.NewsResponse
+import com.example.workshopapp.repo.NewsRepo
 import com.example.workshopapp.repo.RemoteDataSource
+import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application):AndroidViewModel (application){
-    var apiRepository:RemoteDataSource
+    var newsRepo:NewsRepo
     init {
-        apiRepository= RemoteDataSource()
+        newsRepo= NewsRepo(application)
     }
-    fun fetchNewsData(apiKey: String,
-                      lang: String,
-                      source: String):LiveData<NewsResponse>{
-        return apiRepository.fetchNewsData(apiKey,lang,source)
+    val liveData=newsRepo.getData()
+    fun fetchNewsData(apiKey: String,q:String){
+        viewModelScope.launch {
+             newsRepo.refresh(apiKey,q)
+        }
+
     }
 }
