@@ -11,15 +11,17 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
     init {
         localDataSource= LocalDataSource(application)
     }
-    fun validateUser(userName : String,email :String,password :String){
+  suspend  fun validateUser(userName : String,email :String,password :String){
         if(!userName.isNullOrEmpty() && !email.isNullOrEmpty() && !password.isNullOrEmpty() ){
             var user = UserEntity(userName,email,password)
+            insertUser(user)
+
         }else{
             Log.i("register","enter valid data")
         }
     }
-   suspend fun insertUser(userentity :UserEntity){
-        return localDataSource.insertUser(userentity)
+  private suspend fun insertUser(userentity :UserEntity){
+         localDataSource.insertUser(userentity)
     }
 
 
